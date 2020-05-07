@@ -17,9 +17,6 @@ const SignUp = () => {
       <input type="text, number" required />
       <p>Password:</p>
       <input type="text, number" required />
-      <NavLink to="/">
-        <button>Already have an account?</button>
-      </NavLink>
       <button>Submit</button>
     </div>
   );

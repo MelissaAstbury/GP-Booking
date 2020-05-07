@@ -12,9 +12,6 @@ const SignIn = () => {
       <p>Password:</p>
       <input type="text" required />
       <button>Log In</button>
-      <NavLink to="/SignUp">
-        <p>Register</p>
-      </NavLink>
     </div>
   );
 };

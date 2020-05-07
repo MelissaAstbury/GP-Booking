@@ -1,13 +1,11 @@
 import React from "react";
 
-import SignIn from "../../components/SignIn/SignIn";
-
 const HomePage = () => {
   return (
     <div>
-      <SignIn />
+      <h1>Welcome to our GP service!</h1>
     </div>
   );
 };
 
-export default SignIn;
+export default HomePage;
