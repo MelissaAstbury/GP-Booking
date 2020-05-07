@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import "./SignIn.scss";
 
@@ -11,7 +12,9 @@ const SignIn = () => {
       <p>Password:</p>
       <input type="text" required />
       <button>Log In</button>
-      <p>Register</p>
+      <NavLink to="/SignUp">
+        <p>Register</p>
+      </NavLink>
     </div>
   );
 };
