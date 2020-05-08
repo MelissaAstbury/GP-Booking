@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./SignUp.scss";
 
@@ -17,7 +17,9 @@ const SignUp = () => {
       <input type="text, number" required />
       <p>Password:</p>
       <input type="text, number" required />
-      <button>Submit</button>
+      <Link to="/signin">
+        <button>Submit</button>
+      </Link>
     </div>
   );
 };

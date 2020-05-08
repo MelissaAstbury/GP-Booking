@@ -6,16 +6,20 @@ import HomePage from "./containers/HomePage/HomePage";
 import SignInPage from "./containers/SignInPage/SignInPage";
 import SignUpPage from "./containers/SignUpPage/SignUpPage";
 import ContactPage from "./containers/ContactPage/ContactPage";
+import CustomerProfilePage from "./containers/CustomerProfilePage/CustomerProfilePage";
+import BookAppointmentPage from "./containers/BookAppointmentPage/BookAppointmentPage";
 
-import "./App.css";
+import "./App.scss";
 
 function App() {
   const routes = (
     <Switch>
       <Route exact path="/" component={HomePage} />
-      <Route exact path="/signin" component={SignInPage} />
-      <Route exact path="/signup" component={SignUpPage} />
-      <Route exact path="/contact" component={ContactPage} />
+      <Route path="/signin" component={SignInPage} />
+      <Route path="/signup" component={SignUpPage} />
+      <Route path="/contact" component={ContactPage} />
+      <Route path="/customerprofile" component={CustomerProfilePage} />
+      <Route path="/bookappointment" component={BookAppointmentPage} />
       <Redirect to="/" />
     </Switch>
   );
