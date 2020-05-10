@@ -1,5 +1,6 @@
 header {
-  background-color: navy;
+  background-color: #8888db;
+  padding: 20px 0;
 
   nav {
     display: flex;
@@ -7,12 +8,16 @@ header {
     max-width: 1280px;
     margin: 0 auto;
 
-    a {
-      color: #fff;
-      text-decoration: none;
+    li {
+      list-style: none;
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
 
-      &:hover {
-        font-weight: 600;
+        &:hover {
+          font-weight: 600;
+        }
       }
     }
   }

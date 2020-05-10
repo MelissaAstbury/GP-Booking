@@ -5,37 +5,47 @@ import "./Header.scss";
 import { UserContext } from "../../Context/UserContext/UserContext";
 
 const Header = () => {
-  const { isUserSignedIn } = useContext(UserContext);
+  const { isUserSignedIn, onSignOut } = useContext(UserContext);
   return (
     <header>
       <nav>
-        <NavLink to="/">
-          <p>Mel GP</p>
-        </NavLink>
-        {!isUserSignedIn && (
-          <NavLink to="signin">
-            <p>Sign In</p>
+        <li>
+          <NavLink to="/">
+            <p>Mel GP</p>
           </NavLink>
+        </li>
+        {!isUserSignedIn && (
+          <li>
+            <NavLink to="signin">
+              <p>Sign In</p>
+            </NavLink>
+          </li>
         )}
         {!isUserSignedIn && (
-          <NavLink to="signup">
-            <p>Sign Up</p>
-          </NavLink>
+          <li>
+            <NavLink to="signup">
+              <p>Sign Up</p>
+            </NavLink>
+          </li>
         )}
         {isUserSignedIn && (
-          <NavLink to="bookappointment">
-            <p>Book Appointment</p>
-          </NavLink>
+          <li>
+            <NavLink to="bookappointment">
+              <p>Book Appointment</p>
+            </NavLink>
+          </li>
         )}
-
-        <NavLink to="contact">
-          <p>Contact Us</p>
-        </NavLink>
-
-        {isUserSignedIn && (
-          <NavLink to="signout">
-            <p>Sign Out</p>
+        <li>
+          <NavLink to="contact">
+            <p>Contact Us</p>
           </NavLink>
+        </li>
+        {isUserSignedIn && (
+          <li>
+            <NavLink to="/" onClick={onSignOut}>
+              <p>Sign Out</p>
+            </NavLink>
+          </li>
         )}
       </nav>
     </header>

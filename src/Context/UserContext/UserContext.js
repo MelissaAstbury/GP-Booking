@@ -24,11 +24,16 @@ const UserContextProvider = (props) => {
     }
   };
 
+  const onSignOut = () => {
+    setIsUserSignedIn(false);
+  };
+
   return (
     <UserContext.Provider
       value={{
         isUserSignedIn,
         onSignIn,
+        onSignOut,
       }}
     >
       {props.children}
