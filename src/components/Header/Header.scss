@@ -1,4 +1,19 @@
-.header {
-  display: flex;
-  justify-content: space-evenly;
+header {
+  background-color: navy;
+
+  nav {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 1280px;
+    margin: 0 auto;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+
+      &:hover {
+        font-weight: 600;
+      }
+    }
+  }
 }

@@ -7,22 +7,38 @@ import { UserContext } from "../../Context/UserContext/UserContext";
 const Header = () => {
   const { isUserSignedIn } = useContext(UserContext);
   return (
-    <div className="header">
-      <NavLink to="/">
-        <p>GP</p>
-      </NavLink>
-      {!isUserSignedIn && (
-        <NavLink to="signin">
-          <p>Sign In</p>
+    <header>
+      <nav>
+        <NavLink to="/">
+          <p>Mel GP</p>
         </NavLink>
-      )}
-      <NavLink to="signup">
-        <p>Sign Up</p>
-      </NavLink>
-      <NavLink to="contact">
-        <p>Contact Us</p>
-      </NavLink>
-    </div>
+        {!isUserSignedIn && (
+          <NavLink to="signin">
+            <p>Sign In</p>
+          </NavLink>
+        )}
+        {!isUserSignedIn && (
+          <NavLink to="signup">
+            <p>Sign Up</p>
+          </NavLink>
+        )}
+        {isUserSignedIn && (
+          <NavLink to="bookappointment">
+            <p>Book Appointment</p>
+          </NavLink>
+        )}
+
+        <NavLink to="contact">
+          <p>Contact Us</p>
+        </NavLink>
+
+        {isUserSignedIn && (
+          <NavLink to="signout">
+            <p>Sign Out</p>
+          </NavLink>
+        )}
+      </nav>
+    </header>
   );
 };
 

@@ -1,13 +1,11 @@
 import React, { useContext, useState } from "react";
-// import { Link } from "react-router-dom";
 
 import { UserContext } from "../../Context/UserContext/UserContext";
-
 import "./SignIn.scss";
 
 const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("test@email.com");
+  const [password, setPassword] = useState("password");
   const { onSignIn } = useContext(UserContext);
 
   const onSubmit = (e) => {
@@ -34,9 +32,6 @@ const SignIn = () => {
       />
 
       <button type="submit">Login</button>
-      {/* <Link to="/customerprofile">
-        <button>Log In</button>
-      </Link> */}
     </form>
   );
 };

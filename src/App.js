@@ -8,10 +8,9 @@ import SignUpPage from "./containers/SignUpPage/SignUpPage";
 import ContactPage from "./containers/ContactPage/ContactPage";
 import CustomerProfilePage from "./containers/CustomerProfilePage/CustomerProfilePage";
 import BookAppointmentPage from "./containers/BookAppointmentPage/BookAppointmentPage";
-
 import "./App.scss";
 
-function App() {
+const App = () => {
   const routes = (
     <Switch>
       <Route exact path="/" component={HomePage} />
@@ -26,9 +25,9 @@ function App() {
   return (
     <React.Fragment>
       <Header />
-      {routes}
+      <div className="wrapper">{routes}</div>
     </React.Fragment>
   );
-}
+};
 
 export default App;
