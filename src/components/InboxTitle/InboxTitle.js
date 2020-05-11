@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 
+import { AppointmentContext } from "../../Context/AppointmentContext";
 import "./InboxTitle.scss";
 
 const InboxTitle = () => {
+  const { appointments } = useContext(AppointmentContext);
   return (
-    <div>
-      <h2>This will be the title of the appointment</h2>
-    </div>
+    <>
+      {appointments.map((appoitment, index) => {
+        return (
+          <div key={index}>
+            <h3>{appoitment.appointmentTitle}</h3>
+            <p>{appoitment.description}</p>
+            <p>{appoitment.timeChosen}</p>
+            <p>Requested at {appoitment.date}</p>
+          </div>
+        );
+      })}
+    </>
   );
 };
 

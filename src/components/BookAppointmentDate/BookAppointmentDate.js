@@ -10,15 +10,19 @@ const BookAppointmentDate = () => {
   const maxDate = new Date(new Date().setDate(new Date().getDate() + 90));
 
   return (
-    <div className="calendar-container">
-      <label>Select a Date:</label>
-      <Calendar
-        onChange={(date) => setDate(date)}
-        value={date}
-        minDate={minDate}
-        maxDate={maxDate}
-      />
-    </div>
+    <>
+      <div className="calendar-title">
+        <p>Select a Date:</p>
+      </div>
+      <div className="calendar-container">
+        <Calendar
+          onChange={(date) => setDate(date)}
+          value={date}
+          minDate={minDate}
+          maxDate={maxDate}
+        />
+      </div>
+    </>
   );
 };
 

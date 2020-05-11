@@ -33,6 +33,13 @@ const Header = () => {
           )}
           {isUserSignedIn && (
             <li>
+              <NavLink to="inboxpage">
+                <p>Inbox</p>
+              </NavLink>
+            </li>
+          )}
+          {isUserSignedIn && (
+            <li>
               <NavLink to="bookappointment">
                 <p>Book Appointment</p>
               </NavLink>

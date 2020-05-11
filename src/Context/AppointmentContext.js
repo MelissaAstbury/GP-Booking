@@ -11,22 +11,11 @@ const AppointmentContextProvider = (props) => {
     localStorage.setItem("appointments", JSON.stringify(appointments));
   }, [appointments]);
 
-  const mockTimeChosen = "morning";
-  const mockAppointmentTitle = "headache";
-  const mockDescription = "description";
   const history = useHistory();
 
-  const onBookAppointment = (timeChosen, appointmentTitle, description) => {
-    if (
-      timeChosen === mockTimeChosen &&
-      appointmentTitle === mockAppointmentTitle &&
-      description === mockDescription
-    ) {
-      setAppointments(true);
-      history.push("/inboxpage");
-    } else {
-      alert("Your request is not valid");
-    }
+  const onBookAppointment = (appointmentInfo) => {
+    setAppointments([...appointments, appointmentInfo]);
+    history.push("/inboxpage");
   };
 
   return (
