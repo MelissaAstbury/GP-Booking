@@ -8,6 +8,7 @@ import SignUpPage from "./containers/SignUpPage/SignUpPage";
 import ContactPage from "./containers/ContactPage/ContactPage";
 import CustomerProfilePage from "./containers/CustomerProfilePage/CustomerProfilePage";
 import BookAppointmentPage from "./containers/BookAppointmentPage/BookAppointmentPage";
+import UserContextProvider from "./Context/UserContext";
 import "./App.scss";
 
 const App = () => {
@@ -23,10 +24,10 @@ const App = () => {
     </Switch>
   );
   return (
-    <React.Fragment>
+    <UserContextProvider>
       <Header />
       <div className="wrapper">{routes}</div>
-    </React.Fragment>
+    </UserContextProvider>
   );
 };
 

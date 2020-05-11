@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 
-import { UserContext } from "../../Context/UserContext/UserContext";
+import { UserContext } from "../../Context/UserContext";
 import "./SignIn.scss";
 
 const SignIn = () => {

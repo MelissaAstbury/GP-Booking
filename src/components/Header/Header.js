@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import "./Header.scss";
-import { UserContext } from "../../Context/UserContext/UserContext";
+import { UserContext } from "../../Context/UserContext";
 
 const Header = () => {
   const { isUserSignedIn, onSignOut } = useContext(UserContext);
