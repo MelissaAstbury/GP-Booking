@@ -15,23 +15,25 @@ const SignIn = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <h1>Sign In</h1>
-      <p>Email:</p>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <p>Password:</p>
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
+      <div className="signin-container">
+        <h1>Sign In</h1>
+        <p>Email:</p>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <p>Password:</p>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
 
-      <button type="submit">Login</button>
+        <button type="submit">Login</button>
+      </div>
     </form>
   );
 };

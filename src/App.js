@@ -9,6 +9,8 @@ import ContactPage from "./containers/ContactPage/ContactPage";
 import CustomerProfilePage from "./containers/CustomerProfilePage/CustomerProfilePage";
 import BookAppointmentPage from "./containers/BookAppointmentPage/BookAppointmentPage";
 import UserContextProvider from "./Context/UserContext";
+import AppointmentContextProvider from "./Context/AppointmentContext";
+import InboxPage from "./containers/InboxPage/InboxPage";
 import "./App.scss";
 
 const App = () => {
@@ -20,13 +22,16 @@ const App = () => {
       <Route path="/contact" component={ContactPage} />
       <Route path="/customerprofile" component={CustomerProfilePage} />
       <Route path="/bookappointment" component={BookAppointmentPage} />
+      <Route path="/inboxpage" component={InboxPage} />
       <Redirect to="/" />
     </Switch>
   );
   return (
     <UserContextProvider>
-      <Header />
-      <div className="wrapper">{routes}</div>
+      <AppointmentContextProvider>
+        <Header />
+        <div className="wrapper">{routes}</div>
+      </AppointmentContextProvider>
     </UserContextProvider>
   );
 };

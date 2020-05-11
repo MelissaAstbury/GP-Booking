@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 export const AppointmentContext = createContext();
 
@@ -10,14 +11,29 @@ const AppointmentContextProvider = (props) => {
     localStorage.setItem("appointments", JSON.stringify(appointments));
   }, [appointments]);
 
-  const createAppointment = () => {
-    // setAppointments();
+  const mockTimeChosen = "morning";
+  const mockAppointmentTitle = "headache";
+  const mockDescription = "description";
+  const history = useHistory();
+
+  const onBookAppointment = (timeChosen, appointmentTitle, description) => {
+    if (
+      timeChosen === mockTimeChosen &&
+      appointmentTitle === mockAppointmentTitle &&
+      description === mockDescription
+    ) {
+      setAppointments(true);
+      history.push("/inboxpage");
+    } else {
+      alert("Your request is not valid");
+    }
   };
 
   return (
     <AppointmentContext.Provider
       value={{
         appointments,
+        onBookAppointment,
       }}
     >
       {props.children}

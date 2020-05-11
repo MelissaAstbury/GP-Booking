@@ -4,9 +4,15 @@ header {
 
   nav {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     max-width: 1280px;
     margin: 0 auto;
+    font-weight: 700;
+
+    .nav-options {
+      display: flex;
+      justify-content: space-between;
+    }
 
     li {
       list-style: none;
@@ -14,6 +20,10 @@ header {
         color: #fff;
         text-decoration: none;
         font-size: 18px;
+
+        p {
+          margin-right: 40px;
+        }
 
         &:hover {
           font-weight: 600;

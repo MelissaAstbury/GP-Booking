@@ -1,13 +1,13 @@
 import React from "react";
 
-import BookAppointment from "../../components/BookAppointment/BookAppointment";
+import BookAppointmentDate from "../../components/BookAppointmentDate/BookAppointmentDate";
 import BookAppointmentForm from "../../components/BookAppointmentForm/BookAppointmentForm";
 
 const BookAppointmentPage = () => {
   return (
     <div>
       <>
-        <BookAppointment />
+        <BookAppointmentDate />
         <BookAppointmentForm />
       </>
     </div>

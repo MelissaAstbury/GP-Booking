@@ -9,44 +9,48 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <li>
-          <NavLink to="/">
-            <p>Mel GP</p>
-          </NavLink>
-        </li>
-        {!isUserSignedIn && (
+        <div className="logo">
           <li>
-            <NavLink to="signin">
-              <p>Sign In</p>
+            <NavLink to="/">
+              <p>Mel GP</p>
             </NavLink>
           </li>
-        )}
-        {!isUserSignedIn && (
+        </div>
+        <div className="nav-options">
+          {!isUserSignedIn && (
+            <li>
+              <NavLink to="signin">
+                <p>Sign In</p>
+              </NavLink>
+            </li>
+          )}
+          {!isUserSignedIn && (
+            <li>
+              <NavLink to="signup">
+                <p>Sign Up</p>
+              </NavLink>
+            </li>
+          )}
+          {isUserSignedIn && (
+            <li>
+              <NavLink to="bookappointment">
+                <p>Book Appointment</p>
+              </NavLink>
+            </li>
+          )}
           <li>
-            <NavLink to="signup">
-              <p>Sign Up</p>
+            <NavLink to="contact">
+              <p>Contact Us</p>
             </NavLink>
           </li>
-        )}
-        {isUserSignedIn && (
-          <li>
-            <NavLink to="bookappointment">
-              <p>Book Appointment</p>
-            </NavLink>
-          </li>
-        )}
-        <li>
-          <NavLink to="contact">
-            <p>Contact Us</p>
-          </NavLink>
-        </li>
-        {isUserSignedIn && (
-          <li>
-            <NavLink to="/" onClick={onSignOut}>
-              <p>Sign Out</p>
-            </NavLink>
-          </li>
-        )}
+          {isUserSignedIn && (
+            <li>
+              <NavLink to="/" onClick={onSignOut}>
+                <p>Sign Out</p>
+              </NavLink>
+            </li>
+          )}
+        </div>
       </nav>
     </header>
   );
