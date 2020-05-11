@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import Calendar from "react-calendar";
 
 import "./BookAppointmentDate.scss";
 import "react-calendar/dist/Calendar.css";
+import { AppointmentContext } from "../../Context/AppointmentContext";
 
 const BookAppointmentDate = () => {
-  const [date, setDate] = useState(new Date());
+  const { calandarDate, setCalandarDate } = useContext(AppointmentContext);
   const minDate = new Date(new Date().setDate(new Date().getDate()));
   const maxDate = new Date(new Date().setDate(new Date().getDate() + 90));
 
@@ -16,8 +17,8 @@ const BookAppointmentDate = () => {
       </div>
       <div className="calendar-container">
         <Calendar
-          onChange={(date) => setDate(date)}
-          value={date}
+          onChange={(calandarDate) => setCalandarDate(calandarDate)}
+          value={calandarDate}
           minDate={minDate}
           maxDate={maxDate}
         />

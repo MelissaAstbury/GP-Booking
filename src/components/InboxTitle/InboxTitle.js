@@ -5,15 +5,17 @@ import "./InboxTitle.scss";
 
 const InboxTitle = () => {
   const { appointments } = useContext(AppointmentContext);
+  console.log(appointments);
   return (
     <>
-      {appointments.map((appoitment, index) => {
+      {appointments.map((appointment, index) => {
         return (
-          <div key={index}>
-            <h3>{appoitment.appointmentTitle}</h3>
-            <p>{appoitment.description}</p>
-            <p>{appoitment.timeChosen}</p>
-            <p>Requested at {appoitment.date}</p>
+          <div key={index} className="appointment-info">
+            <p>Requested at {appointment.date.toLocaleString()}</p>
+            <h3>{appointment.appointmentTitle}</h3>
+            <p>{appointment.timeChosen}</p>
+            <p>{appointment.description}</p>
+            <p>Appointment Date {appointment.dateSelected}</p>
           </div>
         );
       })}
