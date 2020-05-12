@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 
 import { AppointmentContext } from "../../Context/AppointmentContext";
-import "./InboxTitle.scss";
+import "./Appointment.scss";
 
-const InboxTitle = () => {
+const Appointment = () => {
   const { appointments } = useContext(AppointmentContext);
   console.log(appointments);
   return (
     <>
+      <p>Your appointment hisory and upcoming appointments:</p>
       {appointments.map((appointment, index) => {
         return (
           <div key={index} className="appointment-info">
@@ -23,4 +24,4 @@ const InboxTitle = () => {
   );
 };
 
-export default InboxTitle;
+export default Appointment;
