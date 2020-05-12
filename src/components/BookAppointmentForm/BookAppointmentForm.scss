@@ -3,15 +3,83 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
 
-.radio-options {
-  display: flex;
-  align-items: center;
-  margin-top: 6px;
+  .form-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    padding: 30px;
+    background: #9695a4;
+    box-sizing: border-box;
+    border-radius: 2px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 
-  input {
-    margin-right: 6px;
-    margin-left: 6px;
+    .submit-button {
+      border: none;
+      background: #b1acac;
+      margin-top: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+      padding: 8px 34px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: white;
+
+      &:hover {
+        opacity: 80%;
+      }
+    }
+
+    input {
+      border: none;
+      background: #b1acac;
+      border-radius: 2px;
+      margin-top: 8px;
+      padding: 4px 20px;
+      color: white;
+      font-weight: 800;
+      text-align: center;
+      font-size: 18px;
+      width: 70%;
+    }
+
+    textarea {
+      border: none;
+      background: #b1acac;
+      border-radius: 2px;
+      margin-top: 8px;
+      padding: 4px 20px;
+      color: white;
+      font-weight: 800;
+      text-align: center;
+      font-size: 18px;
+      width: 70%;
+    }
+
+    .reason-input {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .description-input {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .radio-options {
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+
+    input {
+      margin-right: 6px;
+      margin-left: 6px;
+    }
   }
 }

@@ -7,20 +7,26 @@ const Appointment = () => {
   const { appointments } = useContext(AppointmentContext);
   console.log(appointments);
   return (
-    <>
-      <p>Your appointment hisory and upcoming appointments:</p>
+    <div className="appointment-container">
+      <div className="title">
+        <h1>Your appointment hisory and upcoming appointments:</h1>
+      </div>
       {appointments.map((appointment, index) => {
         return (
           <div key={index} className="appointment-info">
-            <p>Requested at {appointment.date.toLocaleString()}</p>
-            <h3>{appointment.appointmentTitle}</h3>
-            <p>{appointment.timeChosen}</p>
-            <p>{appointment.description}</p>
-            <p>Appointment Date {appointment.dateSelected}</p>
+            <p className="date-requested">
+              Requested at {appointment.date.toLocaleString()}
+            </p>
+            <p className="appointment-name">{appointment.appointmentTitle}</p>
+            {/* <p className="time-chosen">{appointment.timeChosen}</p> */}
+            <p className="description">{appointment.description}</p>
+            <p className="appointment-date">
+              Appointment Date: {appointment.dateSelected}
+            </p>
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 

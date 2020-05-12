@@ -16,6 +16,7 @@ const HomePage = () => {
         We will always cater to your needs to make your experience as safe as
         can be.
       </p>
+
       <div className="opening-times">
         <h3>Our Opening Hours:</h3>
         <ul>
@@ -27,6 +28,12 @@ const HomePage = () => {
           <li>Fri: 08:00 - 19:00</li>
           <li>Sat: 08:00 - 17:00</li>
         </ul>
+      </div>
+      <div className="warning-text">
+        <h4>
+          **For more information on Covid-19 please visit the Government Website
+          by clicking here**
+        </h4>
       </div>
     </div>
   );

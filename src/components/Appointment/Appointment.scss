@@ -1,3 +1,35 @@
-.appointment-info {
-  margin: 20px;
+.appointment-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  div.appointment-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    background: #9695a4;
+    box-sizing: border-box;
+    border-radius: 2px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    width: 70%;
+    align-items: center;
+    color: white;
+  }
+
+  .appointment-info {
+    margin-top: 40px;
+  }
+
+  .date-requested {
+    font-size: 12px;
+  }
+
+  .appointment-name {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .description {
+    font-size: 16px;
+  }
 }

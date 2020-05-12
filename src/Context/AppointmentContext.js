@@ -19,7 +19,7 @@ const AppointmentContextProvider = (props) => {
       dateSelected: calandarDate.toLocaleDateString(),
     });
     setAppointments([...appointments, appointmentInfo]);
-    history.push("/inboxpage");
+    history.push("/appointment");
   };
 
   return (

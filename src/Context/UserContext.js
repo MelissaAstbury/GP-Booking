@@ -28,12 +28,18 @@ const UserContextProvider = (props) => {
     setIsUserSignedIn(false);
   };
 
+  const onSignUp = (userInfo) => {
+    console.log(userInfo);
+    history.push("/signin");
+  };
+
   return (
     <UserContext.Provider
       value={{
         isUserSignedIn,
         onSignIn,
         onSignOut,
+        onSignUp,
       }}
     >
       {props.children}

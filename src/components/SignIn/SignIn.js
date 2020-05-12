@@ -32,7 +32,9 @@ const SignIn = () => {
           required
         />
 
-        <button type="submit">Login</button>
+        <button className="signin-button" type="submit">
+          Login
+        </button>
       </div>
     </form>
   );

@@ -27,61 +27,65 @@ const BookAppointmentForm = () => {
     <>
       <Calendar />
       <form onSubmit={onSubmit}>
-        <label>What time do you wish to book?</label>
-        <div className="radio-options">
-          <input
-            type="radio"
-            name="time-chosen"
-            value="morning"
-            required
-            onChange={(e) => {
-              setTimeChosen(e.target.value);
-            }}
-          />
-          Morning
-          <input
-            type="radio"
-            name="time-chosen"
-            value="mid-day"
-            required
-            onChange={(e) => {
-              setTimeChosen(e.target.value);
-            }}
-          />
-          Mid Day
-          <input
-            type="radio"
-            name="time-chosen"
-            value="evening"
-            required
-            onChange={(e) => {
-              setTimeChosen(e.target.value);
-            }}
-          />
-          Evening
+        <div className="form-container">
+          <label>What time do you wish to book?</label>
+          <div className="radio-options">
+            <input
+              type="radio"
+              name="time-chosen"
+              value="morning"
+              required
+              onChange={(e) => {
+                setTimeChosen(e.target.value);
+              }}
+            />
+            Morning
+            <input
+              type="radio"
+              name="time-chosen"
+              value="mid-day"
+              required
+              onChange={(e) => {
+                setTimeChosen(e.target.value);
+              }}
+            />
+            Mid Day
+            <input
+              type="radio"
+              name="time-chosen"
+              value="evening"
+              required
+              onChange={(e) => {
+                setTimeChosen(e.target.value);
+              }}
+            />
+            Evening
+          </div>
+          <br />
+          <div className="reason-input">
+            <label>Reason for Appointment?</label>
+            <input
+              type="text"
+              name="appointment-title"
+              value={appointmentTitle}
+              required
+              onChange={(e) => setAppointmentTitle(e.target.value)}
+            />
+          </div>
+          <div className="description-input">
+            <label>Description</label>
+            <textarea
+              type="text"
+              name="description"
+              value={description}
+              required
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+          <button className="submit-button" type="submit">
+            Submit
+          </button>
         </div>
-        <br />
-        <div>
-          <label>Reason for Appointment?</label>
-          <input
-            type="text"
-            name="appointment-title"
-            value={appointmentTitle}
-            required
-            onChange={(e) => setAppointmentTitle(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Description</label>
-          <textarea
-            type="text"
-            name="description"
-            value={description}
-            required
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
-        <button type="submit">Submit</button>
       </form>
     </>
   );
