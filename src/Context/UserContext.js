@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
+import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 export const UserContext = createContext();
@@ -11,15 +12,21 @@ const UserContextProvider = (props) => {
     localStorage.setItem("auth", JSON.stringify(isUserSignedIn));
   }, [isUserSignedIn]);
 
-  const mockEmail = "test@email.com";
-  const mockPassword = "password";
+  // const mockEmail = "test@email.com";
+  // const mockPassword = "password";
   const history = useHistory();
 
-  const onSignIn = (email, password) => {
-    if (email === mockEmail && password === mockPassword) {
+  const onSignIn = async (email, password) => {
+    try {
+      let res = await axios.post("http://localhost:8081/api/user/login", {
+        email: email,
+        password: password,
+      });
+      let data = res.data;
+      console.log(data);
       setIsUserSignedIn(true);
       history.push("/");
-    } else {
+    } catch (err) {
       alert("Email or password is incorrect");
     }
   };
