@@ -8,8 +8,10 @@ const SignUp = () => {
   const [firstName, setFirstName] = useState("Melissa");
   const [surname, setSurname] = useState("Astbury");
   const [dateOfBirth, setDateOfBirth] = useState("");
-  const [emailAddress, setEmailAddress] = useState("test@email.com");
+  const [email, setEmail] = useState("test@email.com");
   const [password, setPassword] = useState("password");
+  const [address, setAddress] = useState("2 Thresher");
+  const [role, setRole] = useState("admin");
   const { onSignUp } = useContext(UserContext);
 
   const onFormSubmit = (e) => {
@@ -18,8 +20,10 @@ const SignUp = () => {
       firstName: firstName,
       surname: surname,
       dateOfBirth: dateOfBirth,
-      emailAddress: emailAddress,
+      email: email,
       password: password,
+      address: address,
+      role: role,
     };
     onSignUp(userInfo);
   };
@@ -46,6 +50,24 @@ const SignUp = () => {
           }}
           required
         />
+        <p>Address:</p>
+        <input
+          type="text"
+          value={address}
+          onChange={(e) => {
+            setAddress(e.target.value);
+          }}
+          required
+        />
+        <p>Role:</p>
+        <input
+          type="text"
+          value={role}
+          onChange={(e) => {
+            setRole(e.target.value);
+          }}
+          required
+        />
         <p>Date of Birth:</p>
         <input
           type="date"
@@ -55,12 +77,12 @@ const SignUp = () => {
           }}
           required
         />
-        <p>Email Address:</p>
+        <p>Email:</p>
         <input
           type="email"
-          value={emailAddress}
+          value={email}
           onChange={(e) => {
-            setEmailAddress(e.target.value);
+            setEmail(e.target.value);
           }}
           required
         />

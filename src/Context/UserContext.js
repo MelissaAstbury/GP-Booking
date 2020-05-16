@@ -13,17 +13,21 @@ const UserContextProvider = (props) => {
 
   const onSignIn = async (email, password) => {
     try {
-      let res = await axios.post("http://localhost:8081/api/user/login", {
-        email: email,
-        password: password,
-      });
-      const expirationDate = new Date(
-        new Date().getTime() + res.data.tokenExpiration * 1000
+      const loginRes = await axios.post(
+        "http://localhost:8081/api/user/login",
+        {
+          email: email,
+          password: password,
+        }
       );
-      localStorage.setItem("token", res.data.token);
+      const { tokenExpiration, token, userId } = loginRes.data;
+      const expirationDate = new Date(
+        new Date().getTime() + tokenExpiration * 1000
+      );
+      localStorage.setItem("token", token);
       localStorage.setItem("expirationDate", expirationDate);
-      localStorage.setItem("userId", res.data.userId);
-      checkAuthTimeout(res.data.tokenExpiration);
+      localStorage.setItem("userId", userId);
+      checkAuthTimeout(tokenExpiration);
 
       history.push("/");
     } catch (err) {
@@ -65,9 +69,19 @@ const UserContextProvider = (props) => {
     }
   };
 
-  const onSignUp = (userInfo) => {
-    console.log(userInfo);
-    history.push("/signin");
+  const onSignUp = async (userInfo) => {
+    try {
+      const signUpRes = await axios.post(
+        "http://localhost:8081/api/user/signup",
+        {
+          userInfo,
+        }
+      );
+      console.log(signUpRes);
+      history.push("/signin");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
