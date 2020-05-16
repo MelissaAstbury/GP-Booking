@@ -5,7 +5,7 @@ import "./Header.scss";
 import { UserContext } from "../../Context/UserContext";
 
 const Header = () => {
-  const { isUserSignedIn, onSignOut } = useContext(UserContext);
+  const { isUserSignedIn, logout } = useContext(UserContext);
   return (
     <header>
       <nav>
@@ -52,7 +52,7 @@ const Header = () => {
           </li>
           {isUserSignedIn && (
             <li>
-              <NavLink to="/" onClick={onSignOut}>
+              <NavLink to="/" onClick={logout}>
                 <p>Sign Out</p>
               </NavLink>
             </li>

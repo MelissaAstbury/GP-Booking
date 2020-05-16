@@ -5,15 +5,10 @@ import { useHistory } from "react-router-dom";
 export const UserContext = createContext();
 
 const UserContextProvider = (props) => {
-  const initialState = JSON.parse(localStorage.getItem("auth")) || false;
+  const initialState = localStorage.getItem("token") || false;
   const [isUserSignedIn, setIsUserSignedIn] = useState(initialState);
+  const [userId, setUserId] = useState("");
 
-  useEffect(() => {
-    localStorage.setItem("auth", JSON.stringify(isUserSignedIn));
-  }, [isUserSignedIn]);
-
-  // const mockEmail = "test@email.com";
-  // const mockPassword = "password";
   const history = useHistory();
 
   const onSignIn = async (email, password) => {
@@ -22,17 +17,52 @@ const UserContextProvider = (props) => {
         email: email,
         password: password,
       });
-      let data = res.data;
-      console.log(data);
-      setIsUserSignedIn(true);
+      const expirationDate = new Date(
+        new Date().getTime() + res.data.tokenExpiration * 1000
+      );
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("expirationDate", expirationDate);
+      localStorage.setItem("userId", res.data.userId);
+      checkAuthTimeout(res.data.tokenExpiration);
+
       history.push("/");
     } catch (err) {
+      console.log(err);
       alert("Email or password is incorrect");
     }
   };
 
-  const onSignOut = () => {
-    setIsUserSignedIn(false);
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("expirationDate");
+    setIsUserSignedIn(null);
+  };
+
+  const checkAuthTimeout = (experationTime) => {
+    console.log(experationTime);
+    setTimeout(() => {
+      logout();
+    }, experationTime * 1000);
+  };
+
+  const authCheckState = () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      logout();
+    } else {
+      const expirationDate = new Date(localStorage.getItem("expirationDate"));
+      if (expirationDate <= new Date()) {
+        logout();
+      } else {
+        const userId = localStorage.getItem("userId");
+        setUserId(userId);
+        setIsUserSignedIn(token);
+        checkAuthTimeout(
+          (expirationDate.getTime() - new Date().getTime()) / 1000
+        );
+      }
+    }
   };
 
   const onSignUp = (userInfo) => {
@@ -45,8 +75,10 @@ const UserContextProvider = (props) => {
       value={{
         isUserSignedIn,
         onSignIn,
-        onSignOut,
+        logout,
         onSignUp,
+        authCheckState,
+        userId,
       }}
     >
       {props.children}

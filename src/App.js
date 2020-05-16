@@ -11,6 +11,7 @@ import BookAppointmentPage from "./containers/BookAppointmentPage/BookAppointmen
 import UserContextProvider from "./Context/UserContext";
 import AppointmentContextProvider from "./Context/AppointmentContext";
 import AppointmentListPage from "./containers/AppointmentListPage/AppointmentListPage";
+import Layout from "./components/Layout/Layout";
 import "./App.scss";
 
 const App = () => {
@@ -29,8 +30,10 @@ const App = () => {
   return (
     <UserContextProvider>
       <AppointmentContextProvider>
-        <Header />
-        <div className="wrapper">{routes}</div>
+        <Layout>
+          <Header />
+          <div className="wrapper">{routes}</div>
+        </Layout>
       </AppointmentContextProvider>
     </UserContextProvider>
   );

@@ -4,8 +4,8 @@ import { UserContext } from "../../Context/UserContext";
 import "./SignIn.scss";
 
 const SignIn = () => {
-  const [email, setEmail] = useState("test@email.com");
-  const [password, setPassword] = useState("password");
+  const [email, setEmail] = useState("andrew@email.com");
+  const [password, setPassword] = useState("hidden");
   const { onSignIn } = useContext(UserContext);
 
   const onSubmit = (e) => {
