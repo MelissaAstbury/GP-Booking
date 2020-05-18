@@ -1,24 +1,23 @@
 import React, { useState, useContext } from "react";
 
 import { AppointmentContext } from "../../Context/AppointmentContext";
+import { UserContext } from "../../Context/UserContext";
 import Calendar from "../BookAppointmentDate/BookAppointmentDate";
-
 import "./BookAppointmentForm.scss";
 
 const BookAppointmentForm = () => {
-  const [timeChosen, setTimeChosen] = useState("morning");
   const [appointmentTitle, setAppointmentTitle] = useState("headache");
   const [description, setDescription] = useState("description");
-  // const [ errors, setErrors] = useState();
   const { onBookAppointment } = useContext(AppointmentContext);
+  const { userId } = useContext(UserContext);
+  // const [ errors, setErrors] = useState();
 
   const onSubmit = (e) => {
     e.preventDefault();
-    let appointmentInfo = {
-      timeChosen: timeChosen,
-      appointmentTitle: appointmentTitle,
+    const appointmentInfo = {
+      title: appointmentTitle,
       description: description,
-      date: new Date(),
+      creator: userId,
     };
     onBookAppointment(appointmentInfo);
   };
@@ -28,40 +27,6 @@ const BookAppointmentForm = () => {
       <Calendar />
       <form onSubmit={onSubmit}>
         <div className="form-container">
-          <label>What time do you wish to book?</label>
-          <div className="radio-options">
-            <input
-              type="radio"
-              name="time-chosen"
-              value="morning"
-              required
-              onChange={(e) => {
-                setTimeChosen(e.target.value);
-              }}
-            />
-            Morning
-            <input
-              type="radio"
-              name="time-chosen"
-              value="mid-day"
-              required
-              onChange={(e) => {
-                setTimeChosen(e.target.value);
-              }}
-            />
-            Mid Day
-            <input
-              type="radio"
-              name="time-chosen"
-              value="evening"
-              required
-              onChange={(e) => {
-                setTimeChosen(e.target.value);
-              }}
-            />
-            Evening
-          </div>
-          <br />
           <div className="reason-input">
             <label>Reason for Appointment?</label>
             <input

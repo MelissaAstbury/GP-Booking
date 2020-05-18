@@ -2,47 +2,50 @@ import React, { useContext, useEffect } from "react";
 import axios from "axios";
 
 import { AppointmentContext } from "../../Context/AppointmentContext";
-import { UserContext } from "../../Context/UserContext";
+// import { UserContext } from "../../Context/UserContext";
 import "./Appointment.scss";
 
-const Appointment = () => {
+const Appointment = (props) => {
   const { appointments, setAppointments } = useContext(AppointmentContext);
-  const { userId } = useContext(UserContext);
 
   useEffect(() => {
-    async function fetchData() {
+    (async () => {
       try {
+        const userId = localStorage.getItem("userId");
         const appointmentRes = await axios.get(
-          `http://localhost:8081/api/appointment/${userId}`
+          `http://localhost:8081/api/appointment/list/${userId}`
         );
-        setAppointments(...appointments, appointmentRes.data);
+        setAppointments(appointmentRes.data);
+        localStorage.setItem(
+          "appointments",
+          JSON.stringify(appointmentRes.data)
+        );
       } catch (error) {
-        console.log("error retrieving appointments", error.message);
+        console.log("Error retrieving appointments -", error.message);
       }
-    }
-    fetchData();
-  }, [userId]);
-  console.log(appointments);
+    })();
+    // eslint-disable-next-line
+  }, [props.history]);
+
   return (
     <div className="appointment-container">
       <div className="title">
         <h1>Your appointment history and upcoming appointments:</h1>
       </div>
-      {appointments &&
+      {appointments.length > 0 ? (
         appointments.map((appointment, index) => {
           return (
             <div key={index} className="appointment-info">
-              <p className="date-requested">
-                {/* Requested at {appointment.date.toLocaleString()} */}
-              </p>
               <p className="appointment-name">{appointment.title}</p>
-              {/* <p className="description">{appointment.description}</p> */}
               <p className="appointment-date">
-                {/* Appointment Date: {appointment.dateSelected} */}
+                Appointment Date: {appointment.appointmentDate}
               </p>
             </div>
           );
-        })}
+        })
+      ) : (
+        <p>You have no appointments booked with us.</p>
+      )}
     </div>
   );
 };

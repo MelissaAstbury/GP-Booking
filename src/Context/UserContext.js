@@ -27,6 +27,7 @@ const UserContextProvider = (props) => {
       localStorage.setItem("token", token);
       localStorage.setItem("expirationDate", expirationDate);
       localStorage.setItem("userId", userId);
+      setUserId(userId);
       checkAuthTimeout(tokenExpiration);
 
       history.push("/");
@@ -40,6 +41,8 @@ const UserContextProvider = (props) => {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     localStorage.removeItem("expirationDate");
+    localStorage.removeItem("appointments");
+    setUserId("");
     setIsUserSignedIn(null);
   };
 
