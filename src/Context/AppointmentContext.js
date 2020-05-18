@@ -27,6 +27,20 @@ const AppointmentContextProvider = (props) => {
     })();
   };
 
+  const deleteAppointment = (id) => {
+    (async () => {
+      try {
+        await axios.delete(`http://localhost:8081/api/appointment/${id}`);
+        const updatedAppointments = appointments.filter((i) => {
+          return i._id !== id;
+        });
+        setAppointments(updatedAppointments);
+      } catch (error) {
+        console.log("this appointment can not be deleted.", error.message);
+      }
+    })();
+  };
+
   return (
     <AppointmentContext.Provider
       value={{
@@ -35,6 +49,7 @@ const AppointmentContextProvider = (props) => {
         calandarDate,
         setCalandarDate,
         setAppointments,
+        deleteAppointment,
       }}
     >
       {props.children}

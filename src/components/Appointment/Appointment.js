@@ -2,11 +2,12 @@ import React, { useContext, useEffect } from "react";
 import axios from "axios";
 
 import { AppointmentContext } from "../../Context/AppointmentContext";
-// import { UserContext } from "../../Context/UserContext";
 import "./Appointment.scss";
 
 const Appointment = (props) => {
-  const { appointments, setAppointments } = useContext(AppointmentContext);
+  const { appointments, setAppointments, deleteAppointment } = useContext(
+    AppointmentContext
+  );
 
   useEffect(() => {
     (async () => {
@@ -33,13 +34,20 @@ const Appointment = (props) => {
         <h1>Your appointment history and upcoming appointments:</h1>
       </div>
       {appointments.length > 0 ? (
-        appointments.map((appointment, index) => {
+        appointments.map((appointment) => {
           return (
-            <div key={index} className="appointment-info">
+            <div key={appointment._id} className="appointment-info">
               <p className="appointment-name">{appointment.title}</p>
               <p className="appointment-date">
                 Appointment Date: {appointment.appointmentDate}
               </p>
+              <button
+                onClick={() => {
+                  deleteAppointment(appointment._id);
+                }}
+              >
+                X
+              </button>
             </div>
           );
         })

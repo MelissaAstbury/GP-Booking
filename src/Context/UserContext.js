@@ -47,7 +47,6 @@ const UserContextProvider = (props) => {
   };
 
   const checkAuthTimeout = (experationTime) => {
-    console.log(experationTime);
     setTimeout(() => {
       logout();
     }, experationTime * 1000);
