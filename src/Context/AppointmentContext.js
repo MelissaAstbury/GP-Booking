@@ -1,16 +1,16 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 export const AppointmentContext = createContext();
 
 const AppointmentContextProvider = (props) => {
-  const initialState = JSON.parse(localStorage.getItem("appointments")) || [];
-  const [appointments, setAppointments] = useState(initialState);
+  // const initialState = JSON.parse(localStorage.getItem("appointments")) || [];
+  const [appointments, setAppointments] = useState([]);
   const [calandarDate, setCalandarDate] = useState(new Date());
 
-  useEffect(() => {
-    localStorage.setItem("appointments", JSON.stringify(appointments));
-  }, [appointments]);
+  // useEffect(() => {
+  //   localStorage.setItem("appointments", JSON.stringify(appointments));
+  // }, [appointments]);
 
   const history = useHistory();
 
@@ -29,6 +29,7 @@ const AppointmentContextProvider = (props) => {
         onBookAppointment,
         calandarDate,
         setCalandarDate,
+        setAppointments,
       }}
     >
       {props.children}
