@@ -8,6 +8,7 @@ const UserContextProvider = (props) => {
   const initialState = localStorage.getItem("token") || false;
   const [isUserSignedIn, setIsUserSignedIn] = useState(initialState);
   const [userId, setUserId] = useState("");
+  const [userToEdit, setUserToEdit] = useState(null);
 
   const history = useHistory();
 
@@ -95,6 +96,8 @@ const UserContextProvider = (props) => {
         onSignUp,
         authCheckState,
         userId,
+        userToEdit,
+        setUserToEdit,
       }}
     >
       {props.children}
