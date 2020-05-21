@@ -4,12 +4,12 @@ import { UserContext } from "../../Context/UserContext";
 // import "./EditPatientForm.scss";
 
 const EditPatientForm = () => {
-  const [firstName, setFirstName] = useState("Melissa");
-  const [surname, setSurname] = useState("Astbury");
-  const [dateOfBirth, setDateOfBirth] = useState("");
-  const [email, setEmail] = useState("test@email.com");
-  const [address, setAddress] = useState("2 Thresher");
-  const { onEditUser } = useContext(UserContext);
+  const { userToEdit } = useContext(UserContext);
+  const [firstName, setFirstName] = useState(userToEdit.firstName);
+  const [surname, setSurname] = useState(userToEdit.surname);
+  const [dateOfBirth, setDateOfBirth] = useState(userToEdit.dateOfBirth);
+  const [email, setEmail] = useState(userToEdit.email);
+  const [address, setAddress] = useState(userToEdit.address);
 
   const onEditSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ const EditPatientForm = () => {
       email: email,
       address: address,
     };
-    onEditUser(userInfo);
+    // onEditUser(userInfo);
   };
   return (
     <form onSubmit={onEditSubmit}>

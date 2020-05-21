@@ -19,7 +19,11 @@ const Patient = () => {
         console.log("No users found", error.message);
       }
     })();
-  }, []);
+
+    return () => {
+      setUserToEdit(null);
+    };
+  }, [setUserToEdit]);
 
   return (
     <div className="user-container">
