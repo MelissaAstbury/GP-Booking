@@ -11,6 +11,7 @@ import BookAppointmentPage from "./containers/BookAppointmentPage/BookAppointmen
 import UserContextProvider from "./Context/UserContext";
 import AppointmentContextProvider from "./Context/AppointmentContext";
 import AppointmentListPage from "./containers/AppointmentListPage/AppointmentListPage";
+import PatientListPage from "./containers/PatientListPage/PatientListPage";
 import Layout from "./components/Layout/Layout";
 import "./App.scss";
 
@@ -24,6 +25,7 @@ const App = () => {
       <Route path="/customerprofile" component={CustomerProfilePage} />
       <Route path="/bookappointment" component={BookAppointmentPage} />
       <Route path="/appointment" component={AppointmentListPage} />
+      <Route path="/patient" component={PatientListPage} />
       <Redirect to="/" />
     </Switch>
   );
