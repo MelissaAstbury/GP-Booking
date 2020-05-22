@@ -27,9 +27,9 @@ const Patient = () => {
 
   return (
     <div className="user-container">
-      {userToEdit !== null && <EditPatientForm />}
-      <p>Patients List:</p>
-      {users.length > 0 ? (
+      {userToEdit !== null ? (
+        <EditPatientForm />
+      ) : users.length > 0 ? (
         users.map((user) => {
           return (
             <div key={user._id} className="user-info">
