@@ -3,6 +3,7 @@ import axios from "axios";
 
 import { UserContext } from "../../Context/UserContext";
 import EditPatientForm from "../../components/EditPatientForm/EditPatientForm";
+import Button from "../UI/Button/Button";
 
 import "./Patient.scss";
 
@@ -33,10 +34,16 @@ const Patient = () => {
         users.map((user) => {
           return (
             <div key={user._id} className="user-info">
-              <p>{user.firstName}</p>
-              <p>{user.surname}</p>
-              <p>{user.dateOfBirth}</p>
-              <button onClick={() => setUserToEdit(user)}>Edit</button>
+              <div>
+                <p>{user.firstName}</p>
+                <p>{user.surname}</p>
+                <p>{user.dateOfBirth}</p>
+              </div>
+              <div>
+                <Button btnType="danger" clicked={() => setUserToEdit(user)}>
+                  Edit
+                </Button>
+              </div>
             </div>
           );
         })

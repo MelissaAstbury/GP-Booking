@@ -3,6 +3,7 @@ import React, { useState, useContext } from "react";
 import { AppointmentContext } from "../../Context/AppointmentContext";
 import { UserContext } from "../../Context/UserContext";
 import Calendar from "../BookAppointmentDate/BookAppointmentDate";
+import Button from "../UI/Button/Button";
 import "./BookAppointmentForm.scss";
 
 const BookAppointmentForm = () => {
@@ -47,9 +48,10 @@ const BookAppointmentForm = () => {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
-          <button className="submit-button" type="submit">
+
+          <Button btnType="success" clicked={onSubmit}>
             Submit
-          </button>
+          </Button>
         </div>
       </form>
     </>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import axios from "axios";
 
 import { AppointmentContext } from "../../Context/AppointmentContext";
+import Button from "../UI/Button/Button";
 import "./Appointment.scss";
 
 const Appointment = (props) => {
@@ -37,17 +38,24 @@ const Appointment = (props) => {
         appointments.map((appointment) => {
           return (
             <div key={appointment._id} className="appointment-info">
-              <p className="appointment-name">{appointment.title}</p>
-              <p className="appointment-date">
-                Appointment Date: {appointment.appointmentDate}
-              </p>
-              <button
-                onClick={() => {
-                  deleteAppointment(appointment._id);
-                }}
-              >
-                X
-              </button>
+              <div>
+                <p className="appointment-name">{appointment.title}</p>
+                <p className="appointment-date">
+                  Appointment Date: {appointment.appointmentDate}
+                </p>
+              </div>
+              <div>
+                <Button
+                  btnType="error"
+                  clicked={() => {
+                    deleteAppointment(appointment._id);
+                  }}
+                >
+                  <span>
+                    <i className="far fa-trash-alt"></i>
+                  </span>
+                </Button>
+              </div>
             </div>
           );
         })

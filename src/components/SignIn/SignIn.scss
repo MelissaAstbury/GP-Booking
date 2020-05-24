@@ -24,21 +24,7 @@
     letter-spacing: 2px;
   }
 
-  .signin-button {
-    border: none;
-    background: #b1acac;
-    margin-top: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-    padding: 8px 34px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-    color: white;
-
-    &:hover {
-      opacity: 80%;
-    }
+  input:last-of-type {
+    margin-bottom: 20px;
   }
 }

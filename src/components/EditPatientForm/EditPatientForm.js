@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
-//import { useHistory } from "react-router-dom";
 
 import { UserContext } from "../../Context/UserContext";
+import Button from "../UI/Button/Button";
 // import "./EditPatientForm.scss";
 
 const EditPatientForm = () => {
@@ -12,8 +12,6 @@ const EditPatientForm = () => {
   const [dateOfBirth, setDateOfBirth] = useState(userToEdit.dateOfBirth);
   const [email, setEmail] = useState(userToEdit.email);
   const [address, setAddress] = useState(userToEdit.address);
-
-  //const history = useHistory();
 
   const onEditSubmit = async (e) => {
     e.preventDefault();
@@ -37,7 +35,6 @@ const EditPatientForm = () => {
       );
       console.log(userEditRes);
       window.location.reload(false);
-      //history.push("/patient");
     } catch (err) {
       console.log("User can not be edited", err.message);
     }
@@ -92,9 +89,10 @@ const EditPatientForm = () => {
           }}
           required
         />
-        <button className="edit-button" type="submit">
-          Submit
-        </button>
+
+        <Button btnType="success" clicked={onEditSubmit}>
+          Save Changes
+        </Button>
       </div>
     </form>
   );

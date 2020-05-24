@@ -1,0 +1,36 @@
+.button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 34px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+  background-color: transparent;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    opacity: 80%;
+  }
+}
+
+.success {
+  background-color: #4caf50;
+}
+
+.danger {
+  background-color: orange;
+}
+
+.error {
+  background-color: orangered;
+}
+
+.edit {
+  background-color: #b1acac;
+}
+
+.sm {
+  padding: 4px 8px;
+}

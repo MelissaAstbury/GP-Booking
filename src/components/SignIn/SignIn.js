@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 
 import { UserContext } from "../../Context/UserContext";
+import Button from "../UI/Button/Button";
 import "./SignIn.scss";
 
 const SignIn = () => {
   const [email, setEmail] = useState("andrew@email.com");
-  const [password, setPassword] = useState("hidden");
+  const [password, setPassword] = useState("andrew");
   const { onSignIn } = useContext(UserContext);
 
   const onSubmit = (e) => {
@@ -14,7 +15,7 @@ const SignIn = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form>
       <div className="signin-container">
         <h1>Sign In</h1>
         <p>Email:</p>
@@ -32,9 +33,9 @@ const SignIn = () => {
           required
         />
 
-        <button className="signin-button" type="submit">
+        <Button btnType="success" clicked={onSubmit}>
           Login
-        </button>
+        </Button>
       </div>
     </form>
   );
