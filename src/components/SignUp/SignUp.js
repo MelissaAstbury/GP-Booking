@@ -6,13 +6,6 @@ import Button from "../UI/Button/Button";
 import "./SignUp.scss";
 
 const SignUp = () => {
-  // const [firstName, setFirstName] = useState("Melissa");
-  // const [surname, setSurname] = useState("Astbury");
-  // const [dateOfBirth, setDateOfBirth] = useState("");
-  // const [email, setEmail] = useState("test@email.com");
-  // const [password, setPassword] = useState("password");
-  // const [address, setAddress] = useState("2 Thresher");
-  // const [role, setRole] = useState("admin");
   const [firstName, setFirstName] = useState("");
   const [surname, setSurname] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState(

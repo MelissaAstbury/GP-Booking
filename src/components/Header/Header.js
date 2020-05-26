@@ -47,6 +47,13 @@ const Header = () => {
           )}
           {isUserSignedIn && (
             <li>
+              <NavLink to="prescription">
+                <p>Prescriptions</p>
+              </NavLink>
+            </li>
+          )}
+          {isUserSignedIn && (
+            <li>
               <NavLink to="patient">
                 <p>Patients</p>
               </NavLink>

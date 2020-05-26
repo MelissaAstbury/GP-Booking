@@ -8,11 +8,13 @@ import SignUpPage from "./containers/SignUpPage/SignUpPage";
 import ContactPage from "./containers/ContactPage/ContactPage";
 import CustomerProfilePage from "./containers/CustomerProfilePage/CustomerProfilePage";
 import BookAppointmentPage from "./containers/BookAppointmentPage/BookAppointmentPage";
-import UserContextProvider from "./Context/UserContext";
-import AppointmentContextProvider from "./Context/AppointmentContext";
 import AppointmentListPage from "./containers/AppointmentListPage/AppointmentListPage";
 import PatientListPage from "./containers/PatientListPage/PatientListPage";
+import PrescriptionPage from "./containers/PrescriptionPage/PresriptionPage";
 import Layout from "./components/Layout/Layout";
+import UserContextProvider from "./Context/UserContext";
+import AppointmentContextProvider from "./Context/AppointmentContext";
+import PrescriptionContextProvider from "./Context/PresriptionContext";
 import "./App.scss";
 
 const App = () => {
@@ -26,16 +28,19 @@ const App = () => {
       <Route path="/bookappointment" component={BookAppointmentPage} />
       <Route path="/appointment" component={AppointmentListPage} />
       <Route path="/patient" component={PatientListPage} />
+      <Route path="/prescription" component={PrescriptionPage} />
       <Redirect to="/" />
     </Switch>
   );
   return (
     <UserContextProvider>
       <AppointmentContextProvider>
-        <Layout>
-          <Header />
-          <div className="wrapper">{routes}</div>
-        </Layout>
+        <PrescriptionContextProvider>
+          <Layout>
+            <Header />
+            <div className="wrapper">{routes}</div>
+          </Layout>
+        </PrescriptionContextProvider>
       </AppointmentContextProvider>
     </UserContextProvider>
   );
